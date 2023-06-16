@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text Animation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    #text-container {
+      text-align: center;
+      color: red;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+  <div id="text-container">TEXT-GROWING</div>
+
+  <script>
+    var textContainer = document.getElementById("text-container");
+    var fontSize = 10;
+    var growing = true;
+
+    setInterval(function() {
+      if (growing) {
+        fontSize += 5;
+        textContainer.style.fontSize = fontSize + "pt";
+        if (fontSize >= 50) {
+          growing = false;
+          textContainer.innerHTML = "TEXTSHRINKING";
+          textContainer.style.color = "blue";
+        }
+      } else {
+        fontSize -= 5;
+        textContainer.style.fontSize = fontSize + "pt";
+        if (fontSize <= 5) {
+          growing = true;
+          textContainer.innerHTML = "TEXT-GROWING";
+          textContainer.style.color = "red";
+        }
+      }
+    }, 100);
+  </script>
+</body>
+</html>
